@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import br.com.roma.domain.Categoria;
 import br.com.roma.repository.CategoriaRepository;
+import br.com.roma.services.exception.ObjectNotFoundException;
 
 
 
@@ -20,7 +21,25 @@ public class CategoriaService {
 	public Categoria buscar(Integer id) {
 		Optional <Categoria> obj = repo.findById(id);
 	
-		return obj.orElse(null);
+		return obj.orElseThrow( () -> new ObjectNotFoundException(
+				"Objeto não encontrado! id:" +id +", Tipo:" + Categoria.class.getName()));
 	}
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
