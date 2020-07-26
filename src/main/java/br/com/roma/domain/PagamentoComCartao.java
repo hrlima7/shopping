@@ -2,8 +2,10 @@ package br.com.roma.domain;
 
 import java.io.Serializable;
 
-import br.com.roma.domain.enums.EstadoPagamento;
+import javax.persistence.Entity;
 
+import br.com.roma.domain.enums.EstadoPagamento;
+@Entity
 public class PagamentoComCartao extends Pagamento implements Serializable {
 
 	private static final long serialVersionUID = 1L;
